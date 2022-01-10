@@ -9,7 +9,7 @@ Implementation of CNN LSTM with Resnet backend for Video Classification
 * Docker
 
 ## Download weights from Gdrive 
-Download weights from the link : https://drive.google.com/file/d/1A8-i8ZjPVw_Rov3ANYMeajkmo5pSNJ-H/view?usp=sharing
+Download weights from the link : https://drive.google.com/file/d/1A8-i8ZjPVw_Rov3ANYMeajkmo5pSNJ-H/view?usp=sharing <br/>
 Place it in the Turing-Bot folder
 
 ## Run the app
