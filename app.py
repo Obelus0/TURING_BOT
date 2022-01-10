@@ -40,7 +40,7 @@ else :
 def load_model():
     
     print("----Loading Model-------")
-    checkpoint = torch.load("../cnn-lstm/snapshots/cnnlstm-Epoch-44-Loss-0.454975049069267.pth", map_location='cpu')
+    checkpoint = torch.load("model.pth", map_location='cpu')
     model = CNNLSTM(num_classes=2)
     model.load_state_dict(checkpoint['state_dict'])
     class_to_idx = {"goal": 1, "no-goal": 0}
