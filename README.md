@@ -28,22 +28,15 @@ python main.py --use_cuda --gpu 0 --batch_size 8 --n_epochs 100 --num_workers 0 
 python inference.py  --annotation_path ./data/annotation/ucf101_01.json  --dataset ucf101 --model cnnlstm --n_classes <num_classes> --resume_path <path-to-model.pth> 
 ```
 
-## Note 
-* All the weights will be saved to the snapshots folder 
-* To resume Training from any checkpoint, Use
-```
---resume_path <path-to-model> 
-```
-
 
 ## Tensorboard Visualisation Loss
-![alt text](https://github.com/pranoyr/cnn-lstm/blob/master/images/Screenshot%202020-08-13%20at%205.54.36%20PM.png)
+![alt text](https://github.com/Obelus0/TURING_BOT/blob/main/photos/0.png)
 
 ## ROC curve 
-![alt text](https://github.com/pranoyr/cnn-lstm/blob/master/images/Screenshot%202020-08-13%20at%205.54.36%20PM.png)
+![alt text](https://github.com/Obelus0/TURING_BOT/blob/main/photos/2.png)
 
 ## Confusion Matrix
-![alt text](https://github.com/pranoyr/cnn-lstm/blob/master/images/Screenshot%202020-08-13%20at%205.54.36%20PM.png)
+![alt text](https://github.com/Obelus0/TURING_BOT/blob/main/photos/1.png)
 
 
 ## Inference
@@ -51,10 +44,4 @@ python inference.py  --annotation_path ./data/annotation/ucf101_01.json  --datas
 python inference.py  --annotation_path ./data/annotation/ucf101_01.json  --dataset ucf101 --model cnnlstm --n_classes <num_classes> --resume_path <path-to-model.pth> 
 ```
 
-## References
-* https://github.com/kenshohara/video-classification-3d-cnn-pytorch
-* https://github.com/HHTseng/video-classification
-
-## License
-This project is licensed under the MIT License 
 
