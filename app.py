@@ -40,24 +40,24 @@ else :
 def load_model():
     
     print("----Loading Model-------")
-    checkpoint = torch.load("./model-2.pth", map_location='cpu')
+    checkpoint = torch.load("../cnn-lstm/snapshots/cnnlstm-Epoch-44-Loss-0.454975049069267.pth", map_location='cpu')
     model = CNNLSTM(num_classes=2)
     model.load_state_dict(checkpoint['state_dict'])
     class_to_idx = {"goal": 1, "no-goal": 0}
-    mean = [114.7748, 107.7354, 99.4750]
-    std = [1,1,1]
     print(class_to_idx)
     idx_to_class = {}
     for name, label in class_to_idx.items():
         idx_to_class[label] = name
     print("----Model Loaded-------")
+    print(model.fc1.weight)
+    model.eval()
     return model.to(device)
 
 def predict(clip, model,thresh):
   
     mean = [114.7748, 107.7354, 99.4750]
     std = [1,1,1] 
-    norm_method = Normalize(mean, [1, 1, 1])
+    norm_method = Normalize(mean, std)
     spatial_transform = Compose([
         Scale((224, 224)),
         ToTensor(1), norm_method
@@ -66,13 +66,15 @@ def predict(clip, model,thresh):
         # spatial_transform.randomize_parameters()
         clip = [spatial_transform(img) for img in clip]
 
-    # print(clip[0])
+    
+   
+
     clip = torch.stack(clip, dim=0)
     clip = clip.unsqueeze(0).to(device)
     with torch.no_grad():
         # print(clip.shape)
         outputs = model(clip)
-        outputs = F.softmax(outputs)
+        outputs = F.softmax(outputs,dim=1)
         print(outputs.cpu().numpy())
     if outputs[:,-1] > thresh :
        return 1
@@ -151,8 +153,13 @@ def main():
                 fig = plot(out)
 
                 st.text("Original Video")
-                st.pyplot(fig)
                 st.video(video_file)
+                st.text("Inference Result :")                
+                if 1 in out :
+                    st.text("Goal !!")
+                else :
+                    st.text("No Goal !!")
+                st.pyplot(fig)
 
     elif choice == 'About':
         st.subheader("About Green Cover Detection App")
