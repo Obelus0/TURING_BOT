@@ -10,7 +10,7 @@ Implementation of CNN LSTM with Resnet backend for Video Classification
 
 ## Run the app
 ```
-git clone lala
+git clone https://github.com/Obelus0/TURING_BOT.git
 docker build -t basketball . 
 docker run basketball
 ```
