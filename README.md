@@ -8,6 +8,10 @@ Implementation of CNN LSTM with Resnet backend for Video Classification
 * Streamlit
 * Docker
 
+## Download weights from Gdrive 
+Download weights from the link : https://drive.google.com/file/d/1A8-i8ZjPVw_Rov3ANYMeajkmo5pSNJ-H/view?usp=sharing
+Place it in the Turing-Bot folder
+
 ## Run the app
 ```
 git clone https://github.com/Obelus0/TURING_BOT.git
